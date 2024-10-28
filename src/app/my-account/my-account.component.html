@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main">
+    <app-navbar />
+    <main class="content">
+      <div
+        class="card text-black"
+        style="border-radius: 25px"
+        *ngIf="user$ | async as user; else loading"
+      >
+        <div class="card-body p-md-5">
+          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 title">
+            Mon profile
+          </p>
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+              <div class="mx-1 mx-md-4">
+                <div class="mb-5">
+                  <img
+                    [src]="
+                      user.profilePhoto
+                        ? 'data:image/jpeg;base64,' + user.profilePhoto
+                        : '../../assets/images/anonymous.png'
+                    "
+                    width="150rem"
+                    class="mx-auto d-block rounded mb-3"
+                  />
+                </div>
+                <div class="mb-3">
+                  <span style="font-weight: 600; font-size: 1.2rem"
+                    >Email:
+                  </span>
+                  <span style="font-size: 1.2rem">{{ user.email }}</span>
+                </div>
+                <div class="mb-3">
+                  <span style="font-weight: 600; font-size: 1.2rem"
+                    >prénom:
+                  </span>
+                  <span style="font-size: 1.2rem">{{ user.firstName }}</span>
+                </div>
+                <div class="mb-3">
+                  <span style="font-weight: 600; font-size: 1.2rem">Nom: </span>
+                  <span style="font-size: 1.2rem">{{ user.lastName }}</span>
+                </div>
+                <div class="mb-3">
+                  <span style="font-weight: 600; font-size: 1.2rem"
+                    >Position:
+                  </span>
+                  <span style="font-size: 1.2rem">{{ user.position }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #loading>Chargement des données...</ng-template>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main">
+    <app-navbar />
+    <main class="content">
+      <div
+        class="card text-black"
+        style="border-radius: 25px"
+        *ngIf="user$ | async as user; else loading"
+      >
+        <div class="card-body p-md-5">
+          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 title">
+            Modifier mon profile
+          </p>
+          <form
+            class="mx-1 mx-md-4"
+            #myform="ngForm"
+            (ngSubmit)="onSubmit(myform)"
+          >
+            <div class="row justify-content-center">
+              <div>
+                <img
+                  [src]="
+                    user.profilePhoto && !url
+                      ? 'data:image/jpeg;base64,' + user.profilePhoto
+                      : url
+                      ? url
+                      : '../../assets/images/anonymous.png'
+                  "
+                  width="200rem"
+                  class="mx-auto d-block rounded mb-3"
+                />
+              </div>
+
+              <div class="mb-3 text-center">
+                <input
+                  #fileInput
+                  class="form-control"
+                  type="file"
+                  style="display: none"
+                  (change)="onSelectFile($event)"
+                />
+                <a class="img-in" (click)="fileInput.click()"
+                  >Changer de photo</a
+                >
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="form-floating mb-4">
+                  <input
+                    [(ngModel)]="user.email"
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <label for="email">Email</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    [(ngModel)]="user.firstName"
+                    type="text"
+                    class="form-control"
+                    id="fName"
+                    name="fName"
+                    placeholder="First Name"
+                    required
+                  />
+                  <label for="fName">Prénom</label>
+                </div>
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="form-floating mb-4">
+                  <input
+                    [(ngModel)]="user.position"
+                    type="text"
+                    class="form-control"
+                    id="position"
+                    placeholder="Position"
+                    name="position"
+                    required
+                  />
+                  <label for="position">Position</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    [(ngModel)]="user.lastName"
+                    required
+                    type="text"
+                    class="form-control"
+                    id="lName"
+                    name="lName"
+                    placeholder="Last Name"
+                  />
+                  <label for="lName">Nom</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div
+                class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center"
+              >
+                <button type="submit" class="btn btn-lg btn-primary mb-3">
+                  Modifier mon profile
+                </button>
+              </div>
+            </div>
+
+            <div
+              *ngIf="serverErrors && serverErrors.length"
+              class="alert alert-danger mt-3 row"
+            >
+              <ul>
+                <li *ngFor="let error of serverErrors">{{ error }}</li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ng-template #loading>Chargement des données...</ng-template>
+    </main>
+  </div>
+</div>

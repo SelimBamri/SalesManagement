@@ -1,0 +1,104 @@
+<nav id="sidebar" class="sidebar js-sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" href="index.html">
+      <span class="align-middle">Tableau de bord</span>
+    </a>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">Gestion</li>
+
+      <li
+        class="sidebar-item"
+        routerLink="/utilisateurs"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="users"></i>
+          <span class="align-middle">Gestion des utilisateurs</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="shopping-bag"></i>
+          <span class="align-middle">Gestion des produits</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="shopping-cart"></i>
+          <span class="align-middle">Gestion des fournisseurs</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="user-plus"></i>
+          <span class="align-middle">Gestion des clients</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="book"></i>
+          <span class="align-middle">Gestion des commandes</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="book"></i>
+          <span class="align-middle">Gestion des factures</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">Mon compte</li>
+
+      <li
+        class="sidebar-item"
+        routerLink="/profile"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="user"></i>
+          <span class="align-middle">Détails du compte</span>
+        </a>
+      </li>
+
+      <li
+        class="sidebar-item"
+        routerLink="/modifier-profile"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="edit"></i>
+          <span class="align-middle">Modifier mon compte</span>
+        </a>
+      </li>
+
+      <li
+        class="sidebar-item"
+        class="sidebar-item"
+        routerLink="/modifier-mot-de-passe"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="lock"></i>
+          <span class="align-middle">Modifier mon mot de passe</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" (click)="logout()">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="log-out"></i>
+          <span class="align-middle">Sé déconnecter</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

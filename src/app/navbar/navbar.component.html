@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+  <a class="sidebar-toggle js-sidebar-toggle">
+    <i class="hamburger align-self-center"></i>
+  </a>
+
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav navbar-align">
+      <li class="nav-item">
+        <img
+          [src]="
+            user?.profilePhoto
+              ? 'data:image/jpeg;base64,' + user?.profilePhoto
+              : '../assets/images/anonymous.png'
+          "
+          class="avatar img-fluid rounded me-1"
+          alt="{{ user?.firstName }} {{ user?.lastName }}"
+        />
+        <span class="text-dark"
+          >{{ user?.firstName }} {{ user?.lastName }}</span
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

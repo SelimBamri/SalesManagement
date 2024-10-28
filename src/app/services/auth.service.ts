@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'auth_token';
-  private readonly API_URL = 'https://localhost:7063/api';
+  private readonly API_URL = 'https://localhost:7176/api';
   authStateSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
   authState$ = this.authStateSubject.asObservable();
   private currentUserSubject = new BehaviorSubject<User | null>(null);
@@ -19,7 +19,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<void> {
     return this.http
-      .post<{ token: string }>(`${this.API_URL}/accounts/authenticate`, {
+      .post<{ token: string }>(`${this.API_URL}/users/authenticate`, {
         email,
         password,
       })
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   deleteMyAccount(): Observable<any> {
-    return this.http.delete<any>(`${this.API_URL}/accounts`);
+    return this.http.delete<any>(`${this.API_URL}/users`);
   }
 
   private storeToken(token: string): void {
