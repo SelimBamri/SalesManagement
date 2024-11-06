@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, NgForm } from '@angular/forms';
-import * as feather from 'feather-icons';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
@@ -25,7 +24,7 @@ import { Observable } from 'rxjs';
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
-export class ProductComponent implements OnInit, AfterViewInit {
+export class ProductComponent implements OnInit {
   products$!: Observable<Product[]>;
 
   constructor(
@@ -33,9 +32,6 @@ export class ProductComponent implements OnInit, AfterViewInit {
     private snackBar: MatSnackBar,
     private productService: ProductService
   ) {}
-  ngAfterViewInit(): void {
-    feather.replace();
-  }
   onSubmit(form: NgForm) {
     if (form.invalid) {
       this.showSnackBar('Tous les champs sont requis.');
@@ -81,7 +77,6 @@ export class ProductComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    feather.replace();
     this.products$ = this.productService.getProducts();
   }
 

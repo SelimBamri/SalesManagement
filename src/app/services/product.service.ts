@@ -56,6 +56,7 @@ export class ProductService {
       )
     );
   }
+
   getProductById(id: Number): Observable<Product> {
     return this.http.get<any>(`${this.API_URL}/users/${id}`).pipe(
       map((product: any) => ({

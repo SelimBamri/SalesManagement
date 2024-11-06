@@ -38,7 +38,12 @@
         </a>
       </li>
 
-      <li class="sidebar-item">
+      <li
+        class="sidebar-item"
+        routerLink="/clients"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="sidebar-link">
           <i class="align-middle" data-feather="user-plus"></i>
           <span class="align-middle">Gestion des clients</span>
