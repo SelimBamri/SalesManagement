@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { EditPasswordComponent } from './edit-password/edit-password.component';
+import { ProductComponent } from './product/product.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'profile', component: MyAccountComponent },
   { path: 'modifier-profile', component: EditAccountComponent },
   { path: 'modifier-mot-de-passe', component: EditPasswordComponent },
+  { path: 'produits', component: ProductComponent },
 ];

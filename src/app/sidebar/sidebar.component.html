@@ -19,7 +19,12 @@
         </a>
       </li>
 
-      <li class="sidebar-item">
+      <li
+        class="sidebar-item"
+        routerLink="/produits"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="sidebar-link">
           <i class="align-middle" data-feather="shopping-bag"></i>
           <span class="align-middle">Gestion des produits</span>
