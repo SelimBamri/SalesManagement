@@ -1,0 +1,136 @@
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main">
+    <app-navbar />
+    <main class="content">
+      <div class="container-fluid p-0">
+        <div class="mb-3">
+          <h1 class="h3 d-inline align-middle">Gestion des fournisseurs</h1>
+        </div>
+        <div class="row mb-5">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Ajouter un fournisseur</h5>
+              </div>
+              <div class="card-body">
+                <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                  <div class="row mb-3">
+                    <div class="col-8">
+                      <input
+                        ngModel
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Nom du fournisseur"
+                      />
+                    </div>
+                    <div class="text-center col-4">
+                      <button type="submit" class="btn btn-lg btn-primary">
+                        Ajouter
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Liste des fournisseurs</h5>
+              </div>
+              <div class="card-body">
+                <table
+                  *ngIf="suppliers$ | async as suppliers; else loading"
+                  style="width: 100%"
+                >
+                  <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Nombre de transactions</th>
+                    <th>Taille des transactions</th>
+                    <th>Actions</th>
+                  </tr>
+                  <tr *ngFor="let supplier of suppliers" class="mb-5">
+                    <td>{{ supplier.id }}</td>
+                    <td>{{ supplier.name }}</td>
+                    <td>{{ supplier.numberOfExchanges }}</td>
+                    <td>
+                      {{ supplier.exchangeSize ? supplier.exchangeSize : 0 }}
+                    </td>
+                    <td>
+                      <svg
+                        (click)="deleteSupplier(supplier.id)"
+                        style="color: red"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-trash"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                        />
+                        <path
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                </table>
+                <ng-template #loading
+                  >Chargement des fournisseurs...</ng-template
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Modifier un fournisseur</h5>
+              </div>
+              <div class="card-body">
+                <form
+                  #myeditform="ngForm"
+                  (ngSubmit)="onSubmitEdit(myeditform)"
+                >
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <input
+                        ngModel
+                        name="id"
+                        type="number"
+                        class="form-control"
+                        placeholder="Identifiant"
+                      />
+                    </div>
+                    <div class="col-4">
+                      <input
+                        ngModel
+                        type="text"
+                        class="form-control"
+                        name="name2"
+                        placeholder="Nom du fournisseur"
+                      />
+                    </div>
+                    <div class="col-4 text-center">
+                      <button type="submit" class="btn btn-lg btn-primary">
+                        Modifier
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

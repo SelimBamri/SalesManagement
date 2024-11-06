@@ -31,7 +31,12 @@
         </a>
       </li>
 
-      <li class="sidebar-item">
+      <li
+        class="sidebar-item"
+        routerLink="/fournisseurs"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="sidebar-link">
           <i class="align-middle" data-feather="shopping-cart"></i>
           <span class="align-middle">Gestion des fournisseurs</span>
