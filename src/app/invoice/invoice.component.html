@@ -115,7 +115,7 @@
                     <td>{{ invoice.id }}</td>
                     <td>{{ invoice.actorName }}</td>
                     <td>{{ invoice.productName }}</td>
-                    <td>{{ invoice.issueDate }}</td>
+                    <td>{{ invoice.issueDate | date : "dd/MM/yyyy" }}</td>
                     <td>{{ invoice.numberOfUnits }}</td>
                     <td>{{ invoice.unitPrice }}</td>
                     <td>{{ invoice.totalAmount }}</td>

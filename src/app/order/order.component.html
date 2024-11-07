@@ -117,7 +117,7 @@
                     <td>{{ order.id }}</td>
                     <td>{{ order.actorName }}</td>
                     <td>{{ order.productName }}</td>
-                    <td>{{ order.issueDate }}</td>
+                    <td>{{ order.issueDate | date : "dd/MM/yyyy" }}</td>
                     <td>{{ order.numberOfUnits }}</td>
                     <td>{{ order.unitPrice }}</td>
                     <td>{{ order.totalAmount }}</td>

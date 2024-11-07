@@ -4,7 +4,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, NgForm } from '@angular/forms';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
 import { OrderService } from '../services/order.service';
 import { Order } from '../models/order';
 import { Observable, combineLatest, map } from 'rxjs';
@@ -24,6 +24,7 @@ import { Product } from '../models/product';
     NgIf,
     NgFor,
     AsyncPipe,
+    DatePipe,
   ],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss',

@@ -2,6 +2,110 @@
   <app-sidebar></app-sidebar>
   <div class="main">
     <app-navbar />
-    <main class="content">Hola hermanos y hermanas</main>
+    <main class="content">
+      <div class="container-fluid p-0">
+        <div class="mb-3">
+          <h1 class="h3 d-inline align-middle">Gestion des utilisateurs</h1>
+        </div>
+        <div class="row mb-5">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Ajouter un utilisateur</h5>
+              </div>
+              <div class="card-body">
+                <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                  <div class="row mb-3">
+                    <div class="col-6">
+                      <input
+                        ngModel
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <input
+                        ngModel
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        placeholder="Mot de passe"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <input
+                        ngModel
+                        type="text"
+                        class="form-control"
+                        name="firstName"
+                        placeholder="Prénom"
+                      />
+                    </div>
+                    <div class="col-4">
+                      <input
+                        ngModel
+                        name="lastName"
+                        type="text"
+                        class="form-control"
+                        placeholder="Nom"
+                      />
+                    </div>
+                    <div class="col-4">
+                      <input
+                        ngModel
+                        name="position"
+                        type="text"
+                        class="form-control"
+                        placeholder="Poste"
+                      />
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-lg btn-primary">
+                      Ajouter
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Liste des utilisateurs</h5>
+              </div>
+              <div class="card-body">
+                <table
+                  *ngIf="users$ | async as users; else loading"
+                  style="width: 100%"
+                >
+                  <tr>
+                    <th>Email</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Position</th>
+                  </tr>
+                  <tr *ngFor="let user of users" class="mb-5">
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.position }}</td>
+                  </tr>
+                </table>
+                <ng-template #loading
+                  >Chargement des utilisateurs...</ng-template
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </div>

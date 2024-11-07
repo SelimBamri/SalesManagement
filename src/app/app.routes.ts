@@ -9,16 +9,29 @@ import { ClientComponent } from './client/client.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { OrderComponent } from './order/order.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'utilisateurs', component: HomeComponent },
-  { path: 'profile', component: MyAccountComponent },
-  { path: 'modifier-profile', component: EditAccountComponent },
-  { path: 'modifier-mot-de-passe', component: EditPasswordComponent },
-  { path: 'produits', component: ProductComponent },
-  { path: 'clients', component: ClientComponent },
-  { path: 'fournisseurs', component: SupplierComponent },
-  { path: 'factures', component: InvoiceComponent },
-  { path: 'commandes', component: OrderComponent },
+  { path: 'utilisateurs', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'profile', component: MyAccountComponent, canActivate: [authGuard] },
+  {
+    path: 'modifier-profile',
+    component: EditAccountComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'modifier-mot-de-passe',
+    component: EditPasswordComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'produits', component: ProductComponent, canActivate: [authGuard] },
+  { path: 'clients', component: ClientComponent, canActivate: [authGuard] },
+  {
+    path: 'fournisseurs',
+    component: SupplierComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'factures', component: InvoiceComponent, canActivate: [authGuard] },
+  { path: 'commandes', component: OrderComponent, canActivate: [authGuard] },
 ];
