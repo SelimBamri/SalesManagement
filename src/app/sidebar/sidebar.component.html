@@ -62,7 +62,12 @@
         </a>
       </li>
 
-      <li class="sidebar-item">
+      <li
+        class="sidebar-item"
+        routerLink="/factures"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="sidebar-link">
           <i class="align-middle" data-feather="book"></i>
           <span class="align-middle">Gestion des factures</span>
