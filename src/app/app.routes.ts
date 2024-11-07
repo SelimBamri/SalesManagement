@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ClientComponent } from './client/client.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { OrderComponent } from './order/order.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'clients', component: ClientComponent },
   { path: 'fournisseurs', component: SupplierComponent },
   { path: 'factures', component: InvoiceComponent },
+  { path: 'commandes', component: OrderComponent },
 ];
